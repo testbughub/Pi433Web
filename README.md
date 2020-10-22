@@ -15,7 +15,7 @@ pm2 start webserver.js
 pm2 save
 ````
 
-(Below is a copy of [SmartPi's](https://github.com/RonnyFalconeri/SmartPi) README.)  
+(Below is a (sort of) copy of [SmartPi's](https://github.com/RonnyFalconeri/SmartPi) README.)  
 
 ## Software
 This is a project made with **Node.js** so you will need it installed on your Pi.
@@ -39,9 +39,9 @@ More infos: https://projects.drogon.net/raspberry-pi/wiringpi/
 
 To clone this repository just simply run:
 
-``` $ git clone https://github.com/RonnyFalconeri/SmartPi.git ```
+``` $ git clone https://github.com/testbughub/Pi433Web ```
   
-To run the webserver open the SmartPi directory and run:
+To run the webserver open the Pi433Web directory and run:
 
 ``` $ node webserver.js ```
 
