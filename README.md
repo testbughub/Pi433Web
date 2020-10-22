@@ -7,6 +7,14 @@ I also made minor additions and changes, for example, I changed the webserver
 port from **8080** to **8043** because I use 8080 for another webserver.  
 I also forked the RF_Sniffer, and changed it's port to **8042**
 
+I can also recommend using *pm2* to autostart the webserver.
+```
+npm install pm2 -g
+pm2 startup
+pm2 start webserver.js
+pm2 save
+````
+
 (Below is a copy of [SmartPi's](https://github.com/RonnyFalconeri/SmartPi) README.)  
 
 ## Software
