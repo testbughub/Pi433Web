@@ -6,7 +6,7 @@ So I decided to throw together my own repo, but with the updated module.
 I also made minor additions and changes, for example, I changed the webserver  
 port from **8080** to **8043** because I use 8080 for another webserver.
 
-(Below is a copy of [SmartPi's](https://github.com/RonnyFalconeri/SmartPi) README.  
+(Below is a copy of [SmartPi's](https://github.com/RonnyFalconeri/SmartPi) README.)  
 
 ## Software
 This is a project made with **Node.js** so you will need it installed on your Pi.
