@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background-color:#2f2f2f;">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Pi433Web</title>
+    <link rel="shortcut icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAACTFBMVEUAAAAvLy8vLy8vLy8tMDM5KRg5KRctMDMvLy8vLy8vLy8wLy0pMj0pMj0wLy0vLy8vLy8vLy8vLy8vLy8vLy8wLy4wLy4vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8wLy4wLy4vLy8wLy0lNUklNUkwLy0vLzAnNEQnNEQvLzAvLy8vLy4vLy4vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8pMj0OQoIOQoIpMj0wLy4oM0AMQ4YLQ4gLQ4gMQ4YoM0AwLy4nM0ILQ4kOQoIoNEInNEINQoILQ4knM0MwLy4wLy4mNEUJRI0NQoMrMTksMTgsMTgrMTkNQoMJRI0mNEUwLy4lNUgJRI4PQX4kNkwmNEQYPGgYPGgnNEQjNkwPQX4JRI4lNUgJRI0SP3gsMTgpMz8JRI4ASaUASaUJRI4pMz8sMTgRQHgJRI0iNlAsMTYoM0AdOl4BSaEASaMASaMBSaEdOV0oM0AsMTYiNlAwLy0vLy8vLzAoM0AIRY8BSaEBSaEIRY8oMz8vLzAvLy8wLy0vLy8vLy8wLy4aO2QFR5gFR5gbO2EwLy4wLy0kNUkFR5gFR5cmNEcwLy4vLy8tMDQbO2MbO2EtMDMvLy8vLy8vLy8vLy8vLy////+YlKrZAAAAWnRSTlMAAAAAAQcHAQAeY5y2tpxiHQAHYtb9/dViBwV99vV6BVTz81QRvr4QQO/uP2L7+2Fi+/thQO/uPxG/vhBV8/NUBX729gdj1v391mIHAB5knbe3nWMeAAIHBwLLVfAQAAAAAWJLR0TDimiOQgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAAd0SU1FB+QKFgoVIH+PoNwAAAECSURBVBjTY2AAAUYWVjZ2JgYoYObg5OLm4eXjFxBkBvOFhEVEo6JjYsXEJSSBIsxS0jJx8QmJSckpcbJy8swMzAqKqWnpGZlZ2Tm5eUrKzAwqqvkFhUXFJaVl5RWVVWrqDBqa1TW1dfUNjU3NLa1tWtoMOrrtHZ1d3T29ff0TJk7S02cwMJw8Zeq06TNmzpo9Z+48I2MGE9P5CxYuWrxk6bLlK1auMjNnsLBcvXrN2nXrN2zctGb1aitrBmYb29WrN2/Zum37jtWr7eyB7nBwdFq9c9fuPXv3rXaWlgI51cXVzX3/gYOHPDy9vCGe8fH18w8IDAoOCWWGezgsPCISwgMA1tJRWeI4/TkAAAAldEVYdGRhdGU6Y3JlYXRlADIwMjAtMTAtMjJUMTA6MjI6MjErMDI6MDC1qqTYAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDIwLTEwLTIyVDEwOjIxOjMyKzAyOjAw0oK9ZAAAAABJRU5ErkJggg==" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; }
+
+        .switch-button {
+            width: 300px; 
+            height: 300px; 
+            margin: 10px;
+            background: white;
+            border: 1px solid black;
+        }
+
+        .btn-group {
+            margin: auto;
+            background-color: rgba(41, 128, 185, 0.1);
+            border-radius: 10px;
+            width: 330px;
+            margin-bottom: 50px;
+        }
+
+        .left-btn {
+            background-color: rgb(41, 128, 185);
+            border: 1px black;
+            border-radius: 10px 0px 0px 10px;
+            color: white;
+            font-weight: bold;
+            padding: 10px 24px;
+            margin-right: 65px;
+            cursor: pointer;
+            float: left;
+            width: 100px;
+            height: 80px;
+        }
+
+        .right-btn {
+            background-color: rgb(41, 128, 185);
+            border: 1px black;
+            border-radius: 0px 10px 10px 0px;
+            color: white;
+            font-weight: bold;
+            padding: 10px 24px;
+            margin-left: 65px;
+            cursor: pointer;
+            float: left;
+            width: 100px;
+            height: 80px;            
+        }
+
+        h4 {
+            text-align: center;
+        }
+
+        button:active {
+            background-color: rgb(131, 145, 146);
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <h1 class="display-1" style="color:white;text-align: center;">Pi433Web</h1>
+    <hr>
+
+    <h4 style="color:white;">A</h4>
+    <div id="a_switch" class="btn-group d-flex justify-content-center">
+        <button id="a_on" class="left-btn">On</button>
+        <button id="a_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    <h4 style="color:white;">B</h4>
+    <div id="b_switch" class="btn-group d-flex justify-content-center">
+        <button id="b_on" class="left-btn">On</button>
+        <button id="b_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    <h4 style="color:white;">C</h4>
+    <div id="c_switch" class="btn-group d-flex justify-content-center">
+        <button id="c_on" class="left-btn">On</button>
+        <button id="c_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    <h4 style="color:white;">D</h4>
+    <div id="d_switch" class="btn-group d-flex justify-content-center">
+        <button id="d_on" class="left-btn">On</button>
+        <button id="d_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    <h4 style="color:white;">E</h4>
+    <div id="e_switch" class="btn-group d-flex justify-content-center">
+        <button id="e_on" class="left-btn">On</button>
+        <button id="e_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    <h4 style="color:white;">F</h4>
+    <div id="f_switch" class="btn-group d-flex justify-content-center">
+        <button id="f_on" class="left-btn">On</button>
+        <button id="f_off" class="right-btn">Off</button>
+    </div>
+    <br>
+
+    
+    
+    <script>
+        $(document).ready(function() {
+            var socket = io();
+
+            // A receiver -----------------------------------------------------
+            $("#a_on").click(function(){ 
+                socket.emit("a_switcher", true);
+            });
+
+            $("#a_off").click(function(){ 
+                socket.emit("a_switcher", false);
+            });
+
+            // B receiver -----------------------------------------------------
+            $("#b_on").click(function(){ 
+                socket.emit("b_switcher", true);
+            });
+
+            $("#b_off").click(function(){ 
+                socket.emit("b_switcher", false);
+            });
+
+            // C receiver -----------------------------------------------------
+            $("#c_on").click(function(){ 
+                socket.emit("c_switcher", true);
+            });
+
+            $("#c_off").click(function(){ 
+                socket.emit("c_switcher", false);
+            });
+
+            // D receiver -----------------------------------------------------
+            $("#d_on").click(function(){ 
+                socket.emit("d_switcher", true);
+            });
+
+            $("#d_off").click(function(){ 
+                socket.emit("d_switcher", false);
+            });
+
+            // E receiver -----------------------------------------------------
+            $("#e_on").click(function(){ 
+                socket.emit("e_switcher", true);
+            });
+
+            $("#e_off").click(function(){ 
+                socket.emit("e_switcher", false);
+            });
+
+            // F receiver -----------------------------------------------------
+            $("#f_on").click(function(){ 
+                socket.emit("f_switcher", true);
+            });
+
+            $("#f_off").click(function(){ 
+                socket.emit("f_switcher", false);
+            });
+            
+        });
+    </script>
+    
+</body>
+
+</html>
