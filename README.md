@@ -1,7 +1,8 @@
 ## Description
 Originally forked from [SmartPi](https://github.com/RonnyFalconeri/SmartPi),  
 but because it was a while since it was updated, the module used for  
-the 433MHz operations has become deprecated.  
+the 433MHz operations has become deprecated (Updated on Feb 22,  
+so it's working again).  
 So I decided to throw together my own repo, but with the updated module.  
 I also made minor additions and changes, for example, I changed the webserver  
 port from **8080** to **8043** because I use 8080 for another webserver.  
