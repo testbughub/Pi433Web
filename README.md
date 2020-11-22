@@ -5,8 +5,8 @@ the 433MHz operations has become deprecated (Updated on Feb 22,
 so it's working again).  
 So I decided to throw together my own repo, but with the updated module.  
 I also made minor additions and changes, for example, I changed the webserver  
-port from **8080** to **8043** because I use 8080 for another webserver.  
-I also forked the RF_Sniffer, and changed it's port to **8042**
+port from **8080** to **8433** because I use 8080 for another webserver.  
+I also forked the RF_Sniffer, and changed it's port to **8432**
 
 I can also recommend using *pm2* to autostart the webserver.
 ```

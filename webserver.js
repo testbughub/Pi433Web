@@ -14,7 +14,7 @@ var rpi433 = require('rpi-433-v3'),
     pulseLength: 322            //Send the code with a 350 pulse length
   });
 
-http.listen(8043);  // Server listens to port 8080
+http.listen(8433);  // Server listens to port 8080
 
 // Handles request from client, sends index.html
 function handler(req, res) {
